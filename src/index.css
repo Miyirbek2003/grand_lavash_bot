@@ -170,7 +170,7 @@ main {
   left: 50%;
   transform: translate(-50%);
   bottom: -10px;
-  animation: circle 0.4s alternate;
+  animation: circle 0.2s alternate;
 }
 
 @keyframes circle {
