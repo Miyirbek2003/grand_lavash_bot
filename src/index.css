@@ -98,7 +98,8 @@ main {
   display: flex;
 
   overflow: hidden;
-  min-height: 200px; /* if you prefer */
+  min-height: 200px;
+  /* if you prefer */
 
 }
 
@@ -151,6 +152,7 @@ main {
   text-transform: capitalize;
   font-weight: 500;
   color: rgb(167, 167, 167);
+  cursor: pointer;
 }
 
 .products li.active {
@@ -173,7 +175,7 @@ main {
 
 @keyframes circle {
   from {
-    width: 100%;
+    width: 2px;
     height: 2px;
     bottom: 0;
   }
@@ -255,4 +257,38 @@ main {
 
 html {
   margin: 0 auto;
+}
+
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(4, 69, 29, 0.5);
+  padding: 15px;
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: space-between;
+}
+.bottom .plus{
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 17px;
+  font-size: 25px;
+}
+main {
+  position: relative;
+}
+.bottom h4{
+  font-size: 25px;
+  color: #04451d;
+}
+.bottom span{
+  font-size: 17px;
+  font-weight: 500;
 }

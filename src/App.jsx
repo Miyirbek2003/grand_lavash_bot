@@ -6,6 +6,7 @@ import img2 from "./assets/gr2.jpg";
 import { Autoplay } from "swiper/modules";
 import Search from "./components/Search/Search";
 import Products from "./components/Products/Products";
+import Bottom from "./components/Bottom/Bottom";
 export default function App() {
   return (
     <>
@@ -40,6 +41,8 @@ export default function App() {
             <Products />
           </div>
         </div>
+
+        <Bottom />
       </main>
     </>
   );
