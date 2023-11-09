@@ -18,15 +18,15 @@ export default function App() {
         <div className="container">
           <div className="inner">
             <Swiper
-              // autoplay={{
-              //   delay: 2500,
-              //   disableOnInteraction: false,
-              // }}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
               loop={true}
               slidesPerView={1}
               autoPlay={true}
               spaceBetween={30}
-              // modules={[Autoplay]}
+              modules={[Autoplay]}
               className="mySwiper"
             >
               <SwiperSlide>

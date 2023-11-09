@@ -147,6 +147,28 @@ export default function Products() {
             <button className="plus">+</button>
           </div>
         </div>
+        <div id="sauce" className="product">
+          <div className="pr-img">
+            <img src={sauce} alt="" />
+          </div>
+          <h5 className="pr-title">sauce</h5>
+          <h3>19 000 uzs</h3>
+          <div className="actions">
+            <button className="minus">-</button>
+            <button className="plus">+</button>
+          </div>
+        </div>
+        <div id="sauce" className="product">
+          <div className="pr-img">
+            <img src={sauce} alt="" />
+          </div>
+          <h5 className="pr-title">sauce</h5>
+          <h3>19 000 uzs</h3>
+          <div className="actions">
+            <button className="minus">-</button>
+            <button className="plus">+</button>
+          </div>
+        </div>
       </div>
     </div>
   );
