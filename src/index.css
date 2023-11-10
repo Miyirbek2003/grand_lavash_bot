@@ -261,7 +261,7 @@ html {
 
 
 .bottom {
-  position: fixed;
+  position: sticky;
   bottom: 0;
   background-color: white;
   border-top-left-radius: 30px;

@@ -41,9 +41,8 @@ export default function App() {
             <Products />
           </div>
         </div>
-
-        <Bottom />
       </main>
+      <Bottom />
     </>
   );
 }

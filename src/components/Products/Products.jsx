@@ -1,7 +1,10 @@
+import { useSelector, useDispatch } from "react-redux";
+
 import React from "react";
 import lavash from "../../assets/lavash.jpg";
 import gamburger from "../../assets/gamburger.jpg";
 import sauce from "../../assets/sauce.jpg";
+import { addSum, descSum } from "../../store/sumSlice";
 export default function Products() {
   React.useEffect(() => {
     const tab_btn = document.querySelectorAll(".tab-btn");
@@ -28,6 +31,8 @@ export default function Products() {
       });
     });
   }, []);
+  const { sum } = useSelector((state) => state.sumSlice);
+  const dispatch = useDispatch();
   return (
     <div className="products">
       <ul>
@@ -41,10 +46,24 @@ export default function Products() {
             <img src={lavash} alt="" />
           </div>
           <h5 className="pr-title">Lavash</h5>
-          <h3>19 000 uzs</h3>
+          <h3>
+            <span>19 000 </span> uzs
+          </h3>
           <div className="actions">
-            <button className="minus">-</button>
-            <button className="plus">+</button>
+            <button
+              onClick={(e) => dispatch(descSum(e.target.value))}
+              className="minus"
+              value={19000}
+            >
+              -
+            </button>
+            <button
+              onClick={(e) => dispatch(addSum(e.target.value))}
+              className="plus"
+              value={19000}
+            >
+              +
+            </button>
           </div>
         </div>
         <div id="lavash" className="product">
@@ -52,10 +71,24 @@ export default function Products() {
             <img src={lavash} alt="" />
           </div>
           <h5 className="pr-title">Lavash</h5>
-          <h3>19 000 uzs</h3>
+          <h3>
+            <span>19 000 </span> uzs
+          </h3>
           <div className="actions">
-            <button className="minus">-</button>
-            <button className="plus">+</button>
+            <button
+              onClick={(e) => dispatch(descSum(e.target.value))}
+              className="minus"
+              value={19000}
+            >
+              -
+            </button>
+            <button
+              onClick={(e) => dispatch(addSum(e.target.value))}
+              className="plus"
+              value={19000}
+            >
+              +
+            </button>
           </div>
         </div>
         <div id="lavash" className="product">
@@ -63,10 +96,24 @@ export default function Products() {
             <img src={lavash} alt="" />
           </div>
           <h5 className="pr-title">Lavash</h5>
-          <h3>19 000 uzs</h3>
+          <h3>
+            <span>19 000 </span> uzs
+          </h3>
           <div className="actions">
-            <button className="minus">-</button>
-            <button className="plus">+</button>
+            <button
+              onClick={(e) => dispatch(descSum(e.target.value))}
+              className="minus"
+              value={19000}
+            >
+              -
+            </button>
+            <button
+              onClick={(e) => dispatch(addSum(e.target.value))}
+              className="plus"
+              value={19000}
+            >
+              +
+            </button>
           </div>
         </div>
         <div id="lavash" className="product">
@@ -74,10 +121,24 @@ export default function Products() {
             <img src={lavash} alt="" />
           </div>
           <h5 className="pr-title">Lavash</h5>
-          <h3>19 000 uzs</h3>
+          <h3>
+            <span>19 000 </span> uzs
+          </h3>
           <div className="actions">
-            <button className="minus">-</button>
-            <button className="plus">+</button>
+            <button
+              onClick={(e) => dispatch(descSum(e.target.value))}
+              className="minus"
+              value={19000}
+            >
+              -
+            </button>
+            <button
+              onClick={(e) => dispatch(addSum(e.target.value))}
+              className="plus"
+              value={19000}
+            >
+              +
+            </button>
           </div>
         </div>
         <div id="gamburger" className="product">
@@ -85,10 +146,22 @@ export default function Products() {
             <img src={gamburger} alt="" />
           </div>
           <h5 className="pr-title">gamburger</h5>
-          <h3>19 000 uzs</h3>
+          <h3>19000 uzs</h3>
           <div className="actions">
-            <button className="minus">-</button>
-            <button className="plus">+</button>
+            <button
+              onClick={(e) => dispatch(descSum(e.target.value))}
+              className="minus"
+              value={19000}
+            >
+              -
+            </button>
+            <button
+              onClick={(e) => dispatch(addSum(e.target.value))}
+              className="plus"
+              value={19000}
+            >
+              +
+            </button>
           </div>
         </div>
         <div id="gamburger" className="product">
@@ -96,10 +169,24 @@ export default function Products() {
             <img src={gamburger} alt="" />
           </div>
           <h5 className="pr-title">gamburger</h5>
-          <h3>19 000 uzs</h3>
+          <h3>
+            <span>19 000 </span> uzs
+          </h3>
           <div className="actions">
-            <button className="minus">-</button>
-            <button className="plus">+</button>
+            <button
+              onClick={(e) => dispatch(descSum(e.target.value))}
+              className="minus"
+              value={19000}
+            >
+              -
+            </button>
+            <button
+              onClick={(e) => dispatch(addSum(e.target.value))}
+              className="plus"
+              value={19000}
+            >
+              +
+            </button>
           </div>
         </div>
         <div id="gamburger" className="product">
@@ -107,10 +194,24 @@ export default function Products() {
             <img src={gamburger} alt="" />
           </div>
           <h5 className="pr-title">gamburger</h5>
-          <h3>19 000 uzs</h3>
+          <h3>
+            <span>19 000 </span> uzs
+          </h3>
           <div className="actions">
-            <button className="minus">-</button>
-            <button className="plus">+</button>
+            <button
+              onClick={(e) => dispatch(descSum(e.target.value))}
+              className="minus"
+              value={19000}
+            >
+              -
+            </button>
+            <button
+              onClick={(e) => dispatch(addSum(e.target.value))}
+              className="plus"
+              value={19000}
+            >
+              +
+            </button>
           </div>
         </div>
         <div id="gamburger" className="product">
@@ -118,7 +219,9 @@ export default function Products() {
             <img src={gamburger} alt="" />
           </div>
           <h5 className="pr-title">gamburger</h5>
-          <h3>19 000 uzs</h3>
+          <h3>
+            <span>19 000 </span> uzs
+          </h3>
           <div className="actions">
             <button className="minus">-</button>
             <button className="plus">+</button>
@@ -130,10 +233,24 @@ export default function Products() {
             <img src={sauce} alt="" />
           </div>
           <h5 className="pr-title">sauce</h5>
-          <h3>19 000 uzs</h3>
+          <h3>
+            <span>19 000 </span> uzs
+          </h3>
           <div className="actions">
-            <button className="minus">-</button>
-            <button className="plus">+</button>
+            <button
+              onClick={(e) => dispatch(descSum(e.target.value))}
+              className="minus"
+              value={19000}
+            >
+              -
+            </button>
+            <button
+              onClick={(e) => dispatch(addSum(e.target.value))}
+              className="plus"
+              value={19000}
+            >
+              +
+            </button>
           </div>
         </div>
         <div id="sauce" className="product">
@@ -141,10 +258,24 @@ export default function Products() {
             <img src={sauce} alt="" />
           </div>
           <h5 className="pr-title">sauce</h5>
-          <h3>19 000 uzs</h3>
+          <h3>
+            <span>19 000 </span> uzs
+          </h3>
           <div className="actions">
-            <button className="minus">-</button>
-            <button className="plus">+</button>
+            <button
+              onClick={(e) => dispatch(descSum(e.target.value))}
+              className="minus"
+              value={19000}
+            >
+              -
+            </button>
+            <button
+              onClick={(e) => dispatch(addSum(e.target.value))}
+              className="plus"
+              value={19000}
+            >
+              +
+            </button>
           </div>
         </div>
         <div id="sauce" className="product">
@@ -152,10 +283,24 @@ export default function Products() {
             <img src={sauce} alt="" />
           </div>
           <h5 className="pr-title">sauce</h5>
-          <h3>19 000 uzs</h3>
+          <h3>
+            <span>19 000 </span> uzs
+          </h3>
           <div className="actions">
-            <button className="minus">-</button>
-            <button className="plus">+</button>
+            <button
+              onClick={(e) => dispatch(descSum(e.target.value))}
+              className="minus"
+              value={19000}
+            >
+              -
+            </button>
+            <button
+              onClick={(e) => dispatch(addSum(e.target.value))}
+              className="plus"
+              value={19000}
+            >
+              +
+            </button>
           </div>
         </div>
         <div id="sauce" className="product">
@@ -163,10 +308,24 @@ export default function Products() {
             <img src={sauce} alt="" />
           </div>
           <h5 className="pr-title">sauce</h5>
-          <h3>19 000 uzs</h3>
+          <h3>
+            <span>19 000 </span> uzs
+          </h3>
           <div className="actions">
-            <button className="minus">-</button>
-            <button className="plus">+</button>
+            <button
+              onClick={(e) => dispatch(descSum(e.target.value))}
+              className="minus"
+              value={19000}
+            >
+              -
+            </button>
+            <button
+              onClick={(e) => dispatch(addSum(e.target.value))}
+              className="plus"
+              value={19000}
+            >
+              +
+            </button>
           </div>
         </div>
       </div>
