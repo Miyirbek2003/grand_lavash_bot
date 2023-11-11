@@ -4,7 +4,7 @@ import React from "react";
 import lavash from "../../assets/lavash.jpg";
 import gamburger from "../../assets/gamburger.jpg";
 import sauce from "../../assets/sauce.jpg";
-import { addSum, descSum } from "../../store/sumSlice";
+import { addSum, descSum, setSelected_pr } from "../../store/sumSlice";
 export default function Products() {
   React.useEffect(() => {
     const tab_btn = document.querySelectorAll(".tab-btn");
@@ -31,8 +31,9 @@ export default function Products() {
       });
     });
   }, []);
-  const { sum } = useSelector((state) => state.sumSlice);
+  const { sum, selected_pr } = useSelector((state) => state.sumSlice);
   const dispatch = useDispatch();
+  console.log(selected_pr);
   return (
     <div className="products">
       <ul>
@@ -43,6 +44,11 @@ export default function Products() {
       <div className="pr-cards">
         <div id="lavash" className="product">
           <div className="pr-img">
+            {selected_pr.includes("lavash") && (
+              <span className="count">
+                {selected_pr.filter((item) => item == "lavash").length}
+              </span>
+            )}
             <img src={lavash} alt="" />
           </div>
           <h5 className="pr-title">Lavash</h5>
@@ -51,14 +57,19 @@ export default function Products() {
           </h3>
           <div className="actions">
             <button
-              onClick={(e) => dispatch(descSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(descSum({ price: e.target.value, title: "lavash" }));
+              }}
               className="minus"
               value={19000}
             >
               -
             </button>
             <button
-              onClick={(e) => dispatch(addSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(addSum(e.target.value)),
+                  dispatch(setSelected_pr("lavash"));
+              }}
               className="plus"
               value={19000}
             >
@@ -68,22 +79,32 @@ export default function Products() {
         </div>
         <div id="lavash" className="product">
           <div className="pr-img">
+            {selected_pr.includes("lavash-miyaso") && (
+              <span className="count">
+                {selected_pr.filter((item) => item == "lavash-miyaso").length}
+              </span>
+            )}
             <img src={lavash} alt="" />
           </div>
-          <h5 className="pr-title">Lavash</h5>
+          <h5 className="pr-title">Lavash-miyaso</h5>
           <h3>
-            <span>19 000 </span> uzs
+            <span>25 000 </span> uzs
           </h3>
           <div className="actions">
             <button
-              onClick={(e) => dispatch(descSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(descSum({ price: e.target.value, title: "lavash-miyaso" }));
+              }}
               className="minus"
               value={19000}
             >
               -
             </button>
             <button
-              onClick={(e) => dispatch(addSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(addSum(e.target.value)),
+                  dispatch(setSelected_pr("lavash-miyaso"));
+              }}
               className="plus"
               value={19000}
             >
@@ -93,6 +114,11 @@ export default function Products() {
         </div>
         <div id="lavash" className="product">
           <div className="pr-img">
+            {selected_pr.includes("lavash") && (
+              <span className="count">
+                {selected_pr.filter((item) => item == "lavash").length}
+              </span>
+            )}
             <img src={lavash} alt="" />
           </div>
           <h5 className="pr-title">Lavash</h5>
@@ -101,14 +127,19 @@ export default function Products() {
           </h3>
           <div className="actions">
             <button
-              onClick={(e) => dispatch(descSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(descSum({ price: e.target.value, title: "lavash" }));
+              }}
               className="minus"
               value={19000}
             >
               -
             </button>
             <button
-              onClick={(e) => dispatch(addSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(addSum(e.target.value)),
+                  dispatch(setSelected_pr("lavash"));
+              }}
               className="plus"
               value={19000}
             >
@@ -118,6 +149,11 @@ export default function Products() {
         </div>
         <div id="lavash" className="product">
           <div className="pr-img">
+            {selected_pr.includes("lavash") && (
+              <span className="count">
+                {selected_pr.filter((item) => item == "lavash").length}
+              </span>
+            )}
             <img src={lavash} alt="" />
           </div>
           <h5 className="pr-title">Lavash</h5>
@@ -126,14 +162,19 @@ export default function Products() {
           </h3>
           <div className="actions">
             <button
-              onClick={(e) => dispatch(descSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(descSum({ price: e.target.value, title: "lavash" }));
+              }}
               className="minus"
               value={19000}
             >
               -
             </button>
             <button
-              onClick={(e) => dispatch(addSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(addSum(e.target.value)),
+                  dispatch(setSelected_pr("lavash"));
+              }}
               className="plus"
               value={19000}
             >
@@ -143,20 +184,32 @@ export default function Products() {
         </div>
         <div id="gamburger" className="product">
           <div className="pr-img">
+            {selected_pr.includes("gamburger") && (
+              <span className="count">
+                {selected_pr.filter((item) => item == "gamburger").length}
+              </span>
+            )}
             <img src={gamburger} alt="" />
           </div>
           <h5 className="pr-title">gamburger</h5>
           <h3>19000 uzs</h3>
           <div className="actions">
             <button
-              onClick={(e) => dispatch(descSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(
+                  descSum({ price: e.target.value, title: "gamburger" })
+                );
+              }}
               className="minus"
               value={19000}
             >
               -
             </button>
             <button
-              onClick={(e) => dispatch(addSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(addSum(e.target.value)),
+                  dispatch(setSelected_pr("gamburger"));
+              }}
               className="plus"
               value={19000}
             >
@@ -166,6 +219,11 @@ export default function Products() {
         </div>
         <div id="gamburger" className="product">
           <div className="pr-img">
+            {selected_pr.includes("gamburger") && (
+              <span className="count">
+                {selected_pr.filter((item) => item == "gamburger").length}
+              </span>
+            )}
             <img src={gamburger} alt="" />
           </div>
           <h5 className="pr-title">gamburger</h5>
@@ -174,14 +232,21 @@ export default function Products() {
           </h3>
           <div className="actions">
             <button
-              onClick={(e) => dispatch(descSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(
+                  descSum({ price: e.target.value, title: "gamburger" })
+                );
+              }}
               className="minus"
               value={19000}
             >
               -
             </button>
             <button
-              onClick={(e) => dispatch(addSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(addSum(e.target.value)),
+                  dispatch(setSelected_pr("gamburger"));
+              }}
               className="plus"
               value={19000}
             >
@@ -191,6 +256,11 @@ export default function Products() {
         </div>
         <div id="gamburger" className="product">
           <div className="pr-img">
+            {selected_pr.includes("gamburger") && (
+              <span className="count">
+                {selected_pr.filter((item) => item == "gamburger").length}
+              </span>
+            )}
             <img src={gamburger} alt="" />
           </div>
           <h5 className="pr-title">gamburger</h5>
@@ -199,14 +269,21 @@ export default function Products() {
           </h3>
           <div className="actions">
             <button
-              onClick={(e) => dispatch(descSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(
+                  descSum({ price: e.target.value, title: "gamburger" })
+                );
+              }}
               className="minus"
               value={19000}
             >
               -
             </button>
             <button
-              onClick={(e) => dispatch(addSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(addSum(e.target.value)),
+                  dispatch(setSelected_pr("gamburger"));
+              }}
               className="plus"
               value={19000}
             >
@@ -216,6 +293,11 @@ export default function Products() {
         </div>
         <div id="gamburger" className="product">
           <div className="pr-img">
+            {selected_pr.includes("gamburger") && (
+              <span className="count">
+                {selected_pr.filter((item) => item == "gamburger").length}
+              </span>
+            )}
             <img src={gamburger} alt="" />
           </div>
           <h5 className="pr-title">gamburger</h5>
@@ -223,13 +305,37 @@ export default function Products() {
             <span>19 000 </span> uzs
           </h3>
           <div className="actions">
-            <button className="minus">-</button>
-            <button className="plus">+</button>
+            <button
+              onClick={(e) => {
+                dispatch(
+                  descSum({ price: e.target.value, title: "gamburger" })
+                );
+              }}
+              className="minus"
+              value={19000}
+            >
+              -
+            </button>
+            <button
+              onClick={(e) => {
+                dispatch(addSum(e.target.value)),
+                  dispatch(setSelected_pr("gamburger"));
+              }}
+              className="plus"
+              value={19000}
+            >
+              +
+            </button>
           </div>
         </div>
 
         <div id="sauce" className="product">
           <div className="pr-img">
+            {selected_pr.includes("sauce") && (
+              <span className="count">
+                {selected_pr.filter((item) => item == "sauce").length}
+              </span>
+            )}
             <img src={sauce} alt="" />
           </div>
           <h5 className="pr-title">sauce</h5>
@@ -238,14 +344,19 @@ export default function Products() {
           </h3>
           <div className="actions">
             <button
-              onClick={(e) => dispatch(descSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(descSum({ price: e.target.value, title: "sauce" }));
+              }}
               className="minus"
               value={19000}
             >
               -
             </button>
             <button
-              onClick={(e) => dispatch(addSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(addSum(e.target.value)),
+                  dispatch(setSelected_pr("sauce"));
+              }}
               className="plus"
               value={19000}
             >
@@ -255,6 +366,11 @@ export default function Products() {
         </div>
         <div id="sauce" className="product">
           <div className="pr-img">
+            {selected_pr.includes("sauce") && (
+              <span className="count">
+                {selected_pr.filter((item) => item == "sauce").length}
+              </span>
+            )}
             <img src={sauce} alt="" />
           </div>
           <h5 className="pr-title">sauce</h5>
@@ -263,14 +379,19 @@ export default function Products() {
           </h3>
           <div className="actions">
             <button
-              onClick={(e) => dispatch(descSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(descSum({ price: e.target.value, title: "sauce" }));
+              }}
               className="minus"
               value={19000}
             >
               -
             </button>
             <button
-              onClick={(e) => dispatch(addSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(addSum(e.target.value)),
+                  dispatch(setSelected_pr("sauce"));
+              }}
               className="plus"
               value={19000}
             >
@@ -280,6 +401,11 @@ export default function Products() {
         </div>
         <div id="sauce" className="product">
           <div className="pr-img">
+            {selected_pr.includes("sauce") && (
+              <span className="count">
+                {selected_pr.filter((item) => item == "sauce").length}
+              </span>
+            )}
             <img src={sauce} alt="" />
           </div>
           <h5 className="pr-title">sauce</h5>
@@ -288,14 +414,19 @@ export default function Products() {
           </h3>
           <div className="actions">
             <button
-              onClick={(e) => dispatch(descSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(descSum({ price: e.target.value, title: "sauce" }));
+              }}
               className="minus"
               value={19000}
             >
               -
             </button>
             <button
-              onClick={(e) => dispatch(addSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(addSum(e.target.value)),
+                  dispatch(setSelected_pr("sauce"));
+              }}
               className="plus"
               value={19000}
             >
@@ -305,6 +436,11 @@ export default function Products() {
         </div>
         <div id="sauce" className="product">
           <div className="pr-img">
+            {selected_pr.includes("sauce") && (
+              <span className="count">
+                {selected_pr.filter((item) => item == "sauce").length}
+              </span>
+            )}
             <img src={sauce} alt="" />
           </div>
           <h5 className="pr-title">sauce</h5>
@@ -313,7 +449,9 @@ export default function Products() {
           </h3>
           <div className="actions">
             <button
-              onClick={(e) => dispatch(descSum(e.target.value))}
+              onClick={(e) => {
+                dispatch(descSum({ price: e.target.value, title: "sauce" }));
+              }}
               className="minus"
               value={19000}
             >

@@ -273,22 +273,46 @@ html {
   height: 100px;
   align-items: center;
   justify-content: space-between;
+  z-index: 5;
 }
-.bottom .plus{
+
+.bottom .plus {
   color: white;
   border: none;
   border-radius: 10px;
   padding: 17px;
   font-size: 25px;
 }
+
 main {
   position: relative;
 }
-.bottom h4{
+
+.bottom h4 {
   font-size: 25px;
   color: #04451d;
 }
-.bottom span{
+
+.bottom span {
   font-size: 17px;
   font-weight: 500;
+}
+
+
+.pr-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  padding: 10px;
+  color: white;
+  font-weight: 500;
+  background-color: #099e42;
+  border-bottom-left-radius: 10px;
+
 }
