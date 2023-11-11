@@ -106,7 +106,7 @@ export default function Products() {
                   dispatch(setSelected_pr("lavash-miyaso"));
               }}
               className="plus"
-              value={19000}
+              value={25000}
             >
               +
             </button>
