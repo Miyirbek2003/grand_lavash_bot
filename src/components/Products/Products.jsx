@@ -96,7 +96,7 @@ export default function Products() {
                 dispatch(descSum({ price: e.target.value, title: "lavash-miyaso" }));
               }}
               className="minus"
-              value={19000}
+              value={25000}
             >
               -
             </button>
