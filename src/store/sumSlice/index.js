@@ -44,10 +44,17 @@ const sumSlice = createSlice({
             const selected = state.selected_pr.find(item => item.id == payload.id)
             if (selected && selected.quantity != 0) {
                 selected.quantity = selected.quantity - 1
+                if (selected.quantity == 0) {
+                    let indexArr
+                    indexArr = state.selected_pr.findIndex(item => item.id == selected.id)
+                    state.selected_pr.splice(indexArr, 1)
+                }
                 state.sum = state.sum - payload.price
-            } else if (selected && selected.quantity == 0) {
-                state.selected_pr = state.selected_pr.filter(item => item.id != selected.id)
             }
+            // } else if (selected.id == payload.id && selected.quantity == 1) {
+            //     indexArr = state.selected_pr.findIndex(item => item.id == selected.id)
+            //     state.selected_pr.splice(indexArr, 1)
+            // }
 
         },
         setSelected_pr: (state, { payload }) => {

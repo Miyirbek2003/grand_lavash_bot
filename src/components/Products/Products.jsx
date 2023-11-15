@@ -44,7 +44,6 @@ export default function Products() {
     (state) => state.sumSlice
   );
 
-  console.log(selected_pr);
   return (
     <div className="products">
       <ul>
@@ -76,42 +75,44 @@ export default function Products() {
                     )}
                   <img src={item.img_url} loading="lazy" alt="" />
                 </div>
-                <h5 className="pr-title">{item.name}</h5>
-                <h3>
-                  <span>{item.price} </span> uzs
-                </h3>
-                <div className="actions">
-                  <button
-                    onClick={(e) => {
-                      dispatch(
-                        descSum({
-                          price: e.target.value,
-                          title: item.name,
-                          id: item.id,
-                        })
-                      );
-                    }}
-                    className="minus"
-                    value={item.price}
-                  >
-                    -
-                  </button>
-                  <button
-                    onClick={(e) => {
-                      dispatch(
-                        setSelected_pr({
-                          title: item.name,
-                          img: item.img_url,
-                          id: item.id,
-                          price: item.price,
-                        })
-                      );
-                    }}
-                    className="plus"
-                    value={item.price}
-                  >
-                    +
-                  </button>
+                <div className="inner">
+                  <h5 className="pr-title">{item.name}</h5>
+                  <h3>
+                    <span>{item.price} </span> uzs
+                  </h3>
+                  <div className="actions">
+                    <button
+                      onClick={(e) => {
+                        dispatch(
+                          descSum({
+                            price: e.target.value,
+                            title: item.name,
+                            id: item.id,
+                          })
+                        );
+                      }}
+                      className="minus"
+                      value={item.price}
+                    >
+                      -
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        dispatch(
+                          setSelected_pr({
+                            title: item.name,
+                            img: item.img_url,
+                            id: item.id,
+                            price: item.price,
+                          })
+                        );
+                      }}
+                      className="plus"
+                      value={item.price}
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
               </div>
             );
