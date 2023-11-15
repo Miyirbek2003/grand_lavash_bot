@@ -210,7 +210,7 @@ main {
   padding: 0px;
   background-color: #e6ece8;
   border-radius: 7px;
-  display: none;
+  display: block;
   position: relative;
 }
 
