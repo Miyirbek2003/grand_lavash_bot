@@ -32,7 +32,8 @@ export default function Bottom() {
                 quantity: element.quantity,
               });
             });
-            dispatch(orderFood(unique));
+            console.log(ordering);
+            dispatch(orderFood(ordering));
           }}
         >
           Оформить заказ

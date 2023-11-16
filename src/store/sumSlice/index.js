@@ -28,9 +28,11 @@ export const getProducts = createAsyncThunk('sumSlice/getProducts', async (_, { 
 export const orderFood = createAsyncThunk('sumSlice/orderFood', async (selected_pr, { dispatch }) => {
     const response = await axios.post('https://6498-213-230-93-145.ngrok-free.app/api/orders/store-bot',
         {
-            'chat_id': 355699312,   
-            'products': { selected_pr }
-        })
+            "chat_id": "355699312",
+            "products": selected_pr
+        }
+
+    )
     console.log(selected_pr, 'aaa');
     console.log(response);
 })
