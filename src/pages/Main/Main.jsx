@@ -15,16 +15,8 @@ export default function Main() {
 
   const telegramData = telegram.initDataUnsafe;
   const chat_id = telegramData.user?.id;
-  if (
-    Object.keys(telegramData).length === 0 ||
-    typeof telegramData?.user === "undefined"
-  ) {
-    document.querySelector("body").innerText = JSON.stringify(telegram);
-  } else {
-    telegram.expand();
-    document.querySelector("#logbox").innerText =
-      "chat_id" + JSON.stringify(chat_id);
-  }
+  let log = document.querySelector("#logbox");
+  log.innerHTML = chat_id;
 
   if (isLoading) {
     return <Loader />;
