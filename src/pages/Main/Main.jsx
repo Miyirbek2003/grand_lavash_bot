@@ -14,12 +14,28 @@ export default function Main() {
   const telegram = window.Telegram.WebApp;
   const telegramData = telegram.initDataUnsafe;
   const chat_id = telegramData.user.id;
-  telegram.expand()
+
+  if (
+    Object.keys(telegramData).length === 0 ||
+    typeof telegramData.user === "undefined"
+  ) {
+    document.querySelector("body").innerText =
+      "Xatolik, Bot ichida xizmat ko'rsatadi !";
+  } else {
+    telegram.expand();
+    document.querySelector("#logbox").innerText = JSON.stringify(
+      telegram,
+      null,
+      4
+    );
+  }
+
   if (isLoading) {
     return <Loader />;
   }
   return (
     <>
+      <div id="logbox"></div>
       <Header />
       <main>
         <div className="container">
