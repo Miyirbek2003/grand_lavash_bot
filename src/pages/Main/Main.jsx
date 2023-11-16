@@ -22,7 +22,7 @@ export default function Main() {
   }, []);
   telegram.expand();
 
-  const { chat_id: chat_idd } = useSelector((state) => state.sumSlice);
+  
 
   if (isLoading) {
     return <Loader />;
