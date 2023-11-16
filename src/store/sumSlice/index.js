@@ -54,7 +54,8 @@ const initialState = {
     selected_pr: [],
     category: [],
     products: [],
-    chat_id: ''
+    chat_id: '',
+    loading: false
 
 }
 
@@ -103,7 +104,9 @@ const sumSlice = createSlice({
         setChatId: (state, { payload }) => {
             state.chat_id = payload
         },
-    }
+    },
+
+
 })
 
 export default sumSlice.reducer
