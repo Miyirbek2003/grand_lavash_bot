@@ -19,6 +19,9 @@ export default function Products() {
   const { sum, selected_pr, category, products } = useSelector(
     (state) => state.sumSlice
   );
+
+    
+
   const tab_btn = document.querySelectorAll(".tab-btn");
   tab_btn.forEach((item, index) => {
     if (!item.classList.contains("active")) {

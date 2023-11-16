@@ -10,7 +10,11 @@ import "swiper/css";
 import React from "react";
 import Loader from "../../components/Loader/Loader";
 export default function Main() {
-  const [isLoading, setIsLoading] = React.useState(false );
+  const [isLoading, setIsLoading] = React.useState(false);
+  const telegram = window.Telegram.WebApp;
+  const telegramData = telegram.initDataUnsafe;
+  const chat_id = telegramData.user.id;
+  telegram.expand()
   if (isLoading) {
     return <Loader />;
   }
