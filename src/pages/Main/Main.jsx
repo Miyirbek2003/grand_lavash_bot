@@ -21,7 +21,7 @@ export default function Main() {
   ) {
     document.querySelector(
       "body"
-    ).innerText = `Xatolik, Bot ichida xizmat ko'rsatadi !  ${telegram?.user?.id}`;
+    ).innerText = `Xatolik, Bot ichida xizmat ko'rsatadi !  ${telegram.user.id} aa`;
   } else {
     telegram?.expand();
     document.querySelector("#logbox").innerText = JSON.stringify(
