@@ -35,7 +35,7 @@ export const orderFood = createAsyncThunk('sumSlice/orderFood', async (selected_
         }
 
     )
-        
+
 })
 
 
@@ -45,6 +45,7 @@ const initialState = {
     selected_pr: [],
     category: [],
     products: [],
+    chat_id: '',
 
 }
 
@@ -90,9 +91,12 @@ const sumSlice = createSlice({
         setProducts: (state, { payload }) => {
             state.products = payload
         },
+        setChatId: (state, { payload }) => {
+            state.chat_id = payload
+        }
     },
 })
 
 export default sumSlice.reducer
 
-export const { setProducts, addSum, setCategory, descSum, setSelected_pr } = sumSlice.actions
+export const { setProducts, addSum, setCategory, descSum, setSelected_pr, setChatId } = sumSlice.actions
