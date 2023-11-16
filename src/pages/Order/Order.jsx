@@ -2,7 +2,9 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Bottom from "../../components/Bottom/Bottom";
 import { addSum, descSum, setSelected_pr } from "../../store/sumSlice";
-
+import logo from "../../assets/logo.jpg";
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeftLong } from "react-icons/fa6";
 export default function Order() {
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -18,10 +20,16 @@ export default function Order() {
   function countD(item) {
     return selected_pr.filter((value) => value.id == item.id).length;
   }
+  const navigate = useNavigate();
   return (
     <>
       <main>
-        <h1 className="sc_title">Страница заказа</h1>
+        <h1 className="sc_title">
+          <span className="back" onClick={() => navigate("/")}>
+            <FaArrowLeftLong />
+          </span>{" "}
+          Оформление заказа
+        </h1>
         <div className="orders">
           {unique?.map((item) => (
             <div className="order" key={item.id}>

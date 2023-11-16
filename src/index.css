@@ -423,9 +423,10 @@ main {
   align-items: center;
 }
 
-.btm-inner.href span{
+.btm-inner.href span {
   font-size: 22px;
 }
+
 .bottom.href {
   display: flex;
   flex-direction: column;
@@ -438,6 +439,21 @@ main {
   font-size: 24px;
 }
 
-.plus:disabled{
+.plus:disabled {
   background-color: #ddd;
+}
+
+
+.sc_title {
+  position: relative;
+  font-size: 18px;
+}
+
+.back {
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  left: 35px;
+  font-size: 30px;
+  transform: translate(-50%, -50%);
 }

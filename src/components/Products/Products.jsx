@@ -15,18 +15,21 @@ export default function Products() {
     dispatch(getCategory());
     dispatch(getProducts());
   }, []);
+
+  const { sum, selected_pr, category, products } = useSelector(
+    (state) => state.sumSlice
+  );
   const tab_btn = document.querySelectorAll(".tab-btn");
-  tab_btn.forEach((item) => {
+  tab_btn.forEach((item, index) => {
     if (!item.classList.contains("active")) {
       const null_tab = document.querySelectorAll(`.product`);
       null_tab.forEach((null_t) => {
         null_t.style.display = "block";
       });
     }
-
+    
     item.addEventListener("click", () => {
-      console.log(item);
-      const active_tab = document.querySelectorAll(`#${item.innerHTML}`);
+      const active_tab = document.querySelectorAll(`#a${item.id}`);
       const null_tab = document.querySelectorAll(`.product`);
       null_tab.forEach((null_t) => {
         null_t.style.display = "none";
@@ -40,17 +43,13 @@ export default function Products() {
       item.classList.add("active");
     });
   });
-  const { sum, selected_pr, category, products } = useSelector(
-    (state) => state.sumSlice
-  );
-    console.log(selected_pr);
   return (
     <div className="products">
       <ul>
         {category?.map((item, index) => {
           if (index < 5) {
             return (
-              <li key={item.id} id={item.name} className="tab-btn">
+              <li key={item.id} id={item.id} className="tab-btn">
                 {item.name}
               </li>
             );
@@ -61,7 +60,11 @@ export default function Products() {
         {products?.map((item, index) => {
           if (index > 20) {
             return (
-              <div key={item.id} id={item.id} className="product">
+              <div
+                key={item.id}
+                id={"a" + item.category_id}
+                className="product"
+              >
                 <div className="pr-img">
                   {selected_pr.find((itemm) => itemm.id == item.id) &&
                     selected_pr.find((itemm) => itemm.id == item.id).quantity !=

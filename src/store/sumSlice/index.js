@@ -5,7 +5,7 @@ import axios from 'axios'
 
 
 export const getCategory = createAsyncThunk('sumSlice/getCategory', async (_, { dispatch }) => {
-    const response = await axios.get('https://6498-213-230-93-145.ngrok-free.app/api/categories', {
+    const response = await axios.get('https://grandlavash.webclub.uz/api/categories', {
         headers: {
             'Accept': 'application/json',
             'Accept-Language': `ru`
@@ -17,24 +17,25 @@ export const getCategory = createAsyncThunk('sumSlice/getCategory', async (_, { 
 
 
 export const getProducts = createAsyncThunk('sumSlice/getProducts', async (_, { dispatch }) => {
-    const response = await axios.get('https://6498-213-230-93-145.ngrok-free.app/api/products', {
+    const response = await axios.get('https://grandlavash.webclub.uz/api/products', {
         headers: {
-            'Accept-Language': 'ru'
+            'Accept-Language': 'ru',
+            'Accept': 'application/json',
+
         }
     })
     dispatch(setProducts(response.data.data))
 })
 
 export const orderFood = createAsyncThunk('sumSlice/orderFood', async (selected_pr, { dispatch }) => {
-    const response = await axios.post('https://6498-213-230-93-145.ngrok-free.app/api/orders/store-bot',
+    const response = await axios.post('https://grandlavash.webclub.uz/api/orders/store-bot',
         {
             "chat_id": "355699312",
             "products": selected_pr
         }
 
     )
-    console.log(selected_pr, 'aaa');
-    console.log(response);
+        
 })
 
 

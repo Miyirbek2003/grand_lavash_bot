@@ -7,7 +7,13 @@ import Products from "../../components/Products/Products";
 import Search from "../../components/Search/Search";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import React from "react";
+import Loader from "../../components/Loader/Loader";
 export default function Main() {
+  const [isLoading, setIsLoading] = React.useState(false );
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <>
       <Header />
