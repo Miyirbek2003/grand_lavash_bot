@@ -13,10 +13,10 @@ export default function Main() {
   const [isLoading, setIsLoading] = React.useState(false);
   const telegram = window.Telegram.WebApp;
 
-  const telegramData = telegram.initDataUnsafe;
-  const chat_id = telegramData.user?.id;
+  const telegramData = telegram?.initDataUnsafe;
+  const chat_id = telegramData?.user?.id;
   let log = document.querySelector("#logbox");
-  log.innerHTML = chat_id;
+  log.innerHTML = chat_id + "aaa";
   telegram.expand();
   if (isLoading) {
     return <Loader />;
