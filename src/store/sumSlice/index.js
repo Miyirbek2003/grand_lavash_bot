@@ -42,10 +42,14 @@ export const orderFood = createAsyncThunk('sumSlice/orderFood', async (selected_
         }
 
     )
+<<<<<<< HEAD
     if (response.status == 200) {
         telegram.close();
     }
         
+=======
+
+>>>>>>> ed8cab1ff4c520abccc8e99a0521a7d9c493de56
 })
 
 
@@ -55,7 +59,11 @@ const initialState = {
     selected_pr: [],
     category: [],
     products: [],
+<<<<<<< HEAD
     chat_id : ''
+=======
+    chat_id: '',
+>>>>>>> ed8cab1ff4c520abccc8e99a0521a7d9c493de56
 
 }
 
@@ -101,7 +109,11 @@ const sumSlice = createSlice({
         setProducts: (state, { payload }) => {
             state.products = payload
         },
+<<<<<<< HEAD
         setChatId : (state, {payload}) => {
+=======
+        setChatId: (state, { payload }) => {
+>>>>>>> ed8cab1ff4c520abccc8e99a0521a7d9c493de56
             state.chat_id = payload
         }
     },
