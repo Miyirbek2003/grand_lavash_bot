@@ -43,7 +43,7 @@ export default function Products() {
   const { sum, selected_pr, category, products } = useSelector(
     (state) => state.sumSlice
   );
-
+    
   return (
     <div className="products">
       <ul>

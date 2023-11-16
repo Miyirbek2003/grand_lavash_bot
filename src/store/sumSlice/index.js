@@ -5,7 +5,7 @@ import axios from 'axios'
 
 
 export const getCategory = createAsyncThunk('sumSlice/getCategory', async (_, { dispatch }) => {
-    const response = await axios.get('https://qr-menu.premierlounge.uz/api/categories', {
+    const response = await axios.get('https://6498-213-230-93-145.ngrok-free.app/api/categories', {
         headers: {
             'Accept': 'application/json',
             'Accept-Language': `ru`
@@ -17,7 +17,7 @@ export const getCategory = createAsyncThunk('sumSlice/getCategory', async (_, { 
 
 
 export const getProducts = createAsyncThunk('sumSlice/getProducts', async (_, { dispatch }) => {
-    const response = await axios.get('https://qr-menu.premierlounge.uz/api/products', {
+    const response = await axios.get('https://6498-213-230-93-145.ngrok-free.app/api/products', {
         headers: {
             'Accept-Language': 'ru'
         }
