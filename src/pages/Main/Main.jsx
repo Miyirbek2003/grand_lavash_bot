@@ -22,7 +22,7 @@ export default function Main() {
     document.querySelector("body").innerText = JSON.stringify(telegram);
   } else {
     telegram.expand();
-    document.querySelector("#logbox").innerText = JSON.stringify(telegram);
+    document.querySelector("#logbox").innerText = JSON.stringify(chat_id);
   }
 
   if (isLoading) {
