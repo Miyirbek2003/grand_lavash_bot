@@ -23,6 +23,7 @@ export default function Main() {
   telegram.expand();
 
   
+  const { chat_id: chat_idd } = useSelector((state) => state.sumSlice);
 
   if (isLoading) {
     return <Loader />;
@@ -53,7 +54,6 @@ export default function Main() {
               </SwiperSlide>
             </Swiper>
             <Search />
-            {chat_idd}
             <Products />
           </div>
         </div>
