@@ -11,24 +11,7 @@ import React from "react";
 import Loader from "../../components/Loader/Loader";
 export default function Main() {
   const [isLoading, setIsLoading] = React.useState(false);
-  const telegram = window.Telegram.WebApp;
-  const telegramData = telegram?.initDataUnsafe;
-  const chat_id = telegramData?.user?.id;
-
-  if (
-    Object.keys(telegramData).length === 0 ||
-    typeof telegramData?.user === "undefined"
-  ) {
-    document.querySelector("body").innerText =
-      "Xatolik, Bot ichida xizmat ko'rsatadi !";
-  } else {
-    telegram?.expand();
-    document.querySelector("#logbox").innerText = JSON.stringify(
-      telegram,
-      null,
-      4
-    );
-  }
+  
 
   if (isLoading) {
     return <Loader />;

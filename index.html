@@ -9,6 +9,26 @@
   </head>
   <body>
     <div id="root"></div>
+    <div id="logbox"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      const telegram = window.Telegram.WebApp;
+      const telegramData = telegram?.initDataUnsafe;
+      const chat_id = telegramData?.user?.id;
+      if (
+        Object.keys(telegramData).length === 0 ||
+        typeof telegramData?.user === "undefined"
+      ) {
+        document.querySelector("body").innerText =
+          "Xatolik, Bot ichida xizmat ko'rsatadi !";
+      } else {
+        telegram?.expand();
+        document.querySelector("#logbox").innerText = JSON.stringify(
+          telegram,
+          null,
+          4
+        );
+      }
+    </script>
   </body>
 </html>
