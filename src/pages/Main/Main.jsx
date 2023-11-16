@@ -12,8 +12,9 @@ import Loader from "../../components/Loader/Loader";
 export default function Main() {
   const [isLoading, setIsLoading] = React.useState(false);
   const telegram = window.Telegram.WebApp;
-  const telegramData = telegram?.initDataUnsafe;
-  const chat_id = telegramData?.user?.id;
+
+  const telegramData = telegram.initDataUnsafe;
+  const chat_id = telegramData.user?.id;
   if (
     Object.keys(telegramData).length === 0 ||
     typeof telegramData?.user === "undefined"
