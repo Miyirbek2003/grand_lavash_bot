@@ -42,14 +42,10 @@ export const orderFood = createAsyncThunk('sumSlice/orderFood', async (selected_
         }
 
     )
-<<<<<<< HEAD
     if (response.status == 200) {
         telegram.close();
     }
 
-=======
-
->>>>>>> ed8cab1ff4c520abccc8e99a0521a7d9c493de56
 })
 
 
