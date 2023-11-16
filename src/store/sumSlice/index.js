@@ -33,13 +33,17 @@ export const orderFood = createAsyncThunk('sumSlice/orderFood', async (selected_
     if (!chat_id) {
         chat_id = 0;
     }
-
     const response = await axios.post('https://grandlavash.webclub.uz/api/orders/store-bot',
         {
-            "chat_id": chat_id,
-            "products": selected_pr
-        }
+            headers: {
+                Accept: 'application/json'
 
+            },
+            body: {
+                "chat_id": chat_id,
+                "products": selected_pr
+            }
+        }
     )
     if (response.status == 200) {
         telegram.close();
