@@ -15,8 +15,8 @@ export default function Main() {
 
   const telegramData = telegram?.initDataUnsafe;
   const chat_id = telegramData?.user?.id;
-  let log = document.querySelector("#logbox");
-  log.innerHTML = chat_id + "aaa";
+  let log = document.getElementById("logbox");
+  log.innerHTML = chat_id;
   telegram.expand();
   if (isLoading) {
     return <Loader />;
