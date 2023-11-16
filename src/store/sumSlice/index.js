@@ -25,21 +25,30 @@ export const getProducts = createAsyncThunk('sumSlice/getProducts', async (_, { 
     dispatch(setProducts(response.data.data))
 })
 
+export const orderFood = createAsyncThunk('sumSlice/orderFood', async (selected_pr, { dispatch }) => {
+    const response = await axios.post('https://6498-213-230-93-145.ngrok-free.app/api/orders/store-bot',
+        {
+            'chat_id': 355699312,   
+            'products': { selected_pr }
+        })
+    console.log(selected_pr, 'aaa');
+    console.log(response);
+})
+
+
 
 const initialState = {
     sum: 0,
-    selected_pr: [
-
-    ],
+    selected_pr: [],
     category: [],
-    products: []
+    products: [],
+
 }
 
 const sumSlice = createSlice({
     name: "sumSlice",
     initialState,
     reducers: {
-
         descSum: (state, { payload }) => {
             const selected = state.selected_pr.find(item => item.id == payload.id)
             if (selected && selected.quantity != 0) {
