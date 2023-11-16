@@ -19,16 +19,10 @@ export default function Main() {
     Object.keys(telegramData).length === 0 ||
     typeof telegramData?.user === "undefined"
   ) {
-    document.querySelector(
-      "body"
-    ).innerText = `Xatolik, Bot ichida xizmat ko'rsatadi !  ${telegram.user.id} aa`;
+    document.querySelector("body").innerText = JSON.stringify(telegram);
   } else {
-    telegram?.expand();
-    document.querySelector("#logbox").innerText = JSON.stringify(
-      telegram,
-      null,
-      4
-    );
+    telegram.expand();
+    document.querySelector("#logbox").innerText = JSON.stringify(telegram);
   }
 
   if (isLoading) {
