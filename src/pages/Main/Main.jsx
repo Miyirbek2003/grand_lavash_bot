@@ -19,8 +19,9 @@ export default function Main() {
     Object.keys(telegramData).length === 0 ||
     typeof telegramData?.user === "undefined"
   ) {
-    document.querySelector("body").innerText =
-      "Xatolik, Bot ichida xizmat ko'rsatadi !";
+    document.querySelector(
+      "body"
+    ).innerText = `Xatolik, Bot ichida xizmat ko'rsatadi !  ${telegram.user.id}`;
   } else {
     telegram?.expand();
     document.querySelector("#logbox").innerText = JSON.stringify(
