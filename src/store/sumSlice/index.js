@@ -28,14 +28,28 @@ export const getProducts = createAsyncThunk('sumSlice/getProducts', async (_, { 
 })
 
 export const orderFood = createAsyncThunk('sumSlice/orderFood', async (selected_pr, { dispatch }) => {
+    const telegram = window.Telegram.WebApp;
+  const telegramData = telegram.initData;
+  const chat_id = telegram.initDataUnsafe.user.id;
+  if (!chat_id) {
+    chat_id = 0;
+  }
+
     const response = await axios.post('https://grandlavash.webclub.uz/api/orders/store-bot',
         {
-            "chat_id": "355699312",
+            "chat_id": chat_id,
             "products": selected_pr
         }
 
     )
+<<<<<<< HEAD
+    if (response.status == 200) {
+        telegram.close();
+    }
+        
+=======
 
+>>>>>>> ed8cab1ff4c520abccc8e99a0521a7d9c493de56
 })
 
 
@@ -45,7 +59,11 @@ const initialState = {
     selected_pr: [],
     category: [],
     products: [],
+<<<<<<< HEAD
+    chat_id : ''
+=======
     chat_id: '',
+>>>>>>> ed8cab1ff4c520abccc8e99a0521a7d9c493de56
 
 }
 
@@ -91,7 +109,11 @@ const sumSlice = createSlice({
         setProducts: (state, { payload }) => {
             state.products = payload
         },
+<<<<<<< HEAD
+        setChatId : (state, {payload}) => {
+=======
         setChatId: (state, { payload }) => {
+>>>>>>> ed8cab1ff4c520abccc8e99a0521a7d9c493de56
             state.chat_id = payload
         }
     },

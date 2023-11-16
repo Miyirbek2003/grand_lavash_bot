@@ -13,6 +13,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setChatId } from "../../store/sumSlice";
 export default function Main() {
   const [isLoading, setIsLoading] = React.useState(false);
+<<<<<<< HEAD
+=======
   const telegram = window.Telegram.WebApp;
   const dispatch = useDispatch();
   const telegramData = telegram?.initDataUnsafe;
@@ -23,6 +25,7 @@ export default function Main() {
   telegram.expand();
 
   const { chat_id: chat_idd } = useSelector((state) => state.sumSlice);
+>>>>>>> ed8cab1ff4c520abccc8e99a0521a7d9c493de56
 
   if (isLoading) {
     return <Loader />;
