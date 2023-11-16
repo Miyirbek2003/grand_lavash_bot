@@ -17,13 +17,12 @@ export default function Main() {
   const chat_id = telegramData.user?.id;
   let log = document.querySelector("#logbox");
   log.innerHTML = chat_id;
-
+  telegram.expand();
   if (isLoading) {
     return <Loader />;
   }
   return (
     <>
-      <div id="logbox"></div>
       <Header />
       <main>
         <div className="container">
@@ -48,6 +47,7 @@ export default function Main() {
               </SwiperSlide>
             </Swiper>
             <Search />
+            <div id="logbox"></div>
             <Products />
           </div>
         </div>
