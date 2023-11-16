@@ -5,7 +5,7 @@ export default function Search() {
       <button>
         <BsSearch color="#04451d" />
       </button>
-      <input type="text" />
+      <input type="text"  />
     </div>
   );
 }

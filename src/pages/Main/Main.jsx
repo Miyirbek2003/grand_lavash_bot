@@ -19,26 +19,27 @@ export default function Main() {
       <main>
         <div className="container">
           <div className="inner">
-            <Swiper
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              loop={true}
-              slidesPerView={1}
-              autoPlay={true}
-              spaceBetween={30}
-              modules={[Autoplay]}
-              className="mySwiper"
-            >
-              <SwiperSlide>
-                <img src={img1} alt="" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={img2} alt="" />
-              </SwiperSlide>
-            </Swiper>
-            <Search />
+            <div className="banner">
+              <Swiper
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }}
+                loop={true}
+                slidesPerView={1}
+                autoPlay={true}
+                spaceBetween={30}
+                modules={[Autoplay]}
+                className="mySwiper"
+              >
+                <SwiperSlide>
+                  <img src={img1} alt="" />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <img src={img2} alt="" />
+                </SwiperSlide>
+              </Swiper>
+            </div>
             <Products />
           </div>
         </div>

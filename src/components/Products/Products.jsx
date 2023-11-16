@@ -8,6 +8,9 @@ import {
   getProducts,
   setSelected_pr,
 } from "../../store/sumSlice";
+import { BsSearch } from "react-icons/bs";
+import { MdOutlineClear } from "react-icons/md";
+
 export default function Products() {
   const dispatch = useDispatch();
 
@@ -20,18 +23,15 @@ export default function Products() {
     (state) => state.sumSlice
   );
 
-    
-
   const tab_btn = document.querySelectorAll(".tab-btn");
   tab_btn.forEach((item, index) => {
-    if (!item.classList.contains("active")) {
-      const null_tab = document.querySelectorAll(`.product`);
-      null_tab.forEach((null_t) => {
-        null_t.style.display = "block";
-      });
-    }
-    
     item.addEventListener("click", () => {
+      if (!item.classList.contains("active")) {
+        const null_tab = document.querySelectorAll(`.product`);
+        null_tab.forEach((null_t) => {
+          null_t.style.display = "block";
+        });
+      }
       const active_tab = document.querySelectorAll(`#a${item.id}`);
       const null_tab = document.querySelectorAll(`.product`);
       null_tab.forEach((null_t) => {
@@ -46,22 +46,46 @@ export default function Products() {
       item.classList.add("active");
     });
   });
+  const [result, setResult] = React.useState("");
+  let sorted = products;
+  sorted = products.filter((item) =>
+    item.name
+      .toLowerCase()
+      .substring(0, 7)
+      .includes(result.toLowerCase().trim())
+  );
   return (
-    <div className="products">
-      <ul>
-        {category?.map((item, index) => {
-          if (index < 5) {
-            return (
-              <li key={item.id} id={item.id} className="tab-btn">
-                {item.name}
-              </li>
-            );
-          }
-        })}
-      </ul>
-      <div className="pr-cards">
-        {products?.map((item, index) => {
-          if (index > 20) {
+    <>
+      <div className="search">
+        <button>
+          <BsSearch color="#04451d" fontSize={22} />
+        </button>
+        <input
+          type="text"
+          value={result}
+          style={{ width: "90%" }}
+          onChange={(e) => setResult(e.target.value)}
+        />
+        {result && (
+          <span className="clear" onClick={() => setResult("")}>
+            <MdOutlineClear fontSize={20} color={"#04451d"} fontWeight={600} />
+          </span>
+        )}
+      </div>
+      <div className="products">
+        <ul>
+          {category?.map((item, index) => {
+            if (index < 5) {
+              return (
+                <li key={item.id} id={item.id} className="tab-btn">
+                  {item.name}
+                </li>
+              );
+            }
+          })}
+        </ul>
+        <div className="pr-cards">
+          {sorted.map((item, index) => {
             return (
               <div
                 key={item.id}
@@ -122,9 +146,9 @@ export default function Products() {
                 </div>
               </div>
             );
-          }
-        })}
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
