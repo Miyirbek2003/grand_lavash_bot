@@ -21,7 +21,6 @@ export const getProducts = createAsyncThunk('sumSlice/getProducts', async (_, { 
         headers: {
             'Accept-Language': 'ru',
             'Accept': 'application/json',
-
         }
     })
     dispatch(setProducts(response.data.data))

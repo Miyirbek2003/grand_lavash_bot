@@ -25,15 +25,16 @@ export default function Bottom() {
         </div>
         <button
           className="plus href"
-          onClick={() => {
+          onClick={(e) => {
             unique.forEach((element) => {
               ordering.push({
                 product_id: element.id,
                 quantity: element.quantity,
               });
             });
-            console.log(ordering);
             dispatch(orderFood(ordering));
+            let btn = document.querySelector(".plus.href");
+            btn.disabled = "true";
           }}
         >
           Оформить заказ
