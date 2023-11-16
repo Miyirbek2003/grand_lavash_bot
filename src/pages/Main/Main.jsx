@@ -9,25 +9,10 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import React from "react";
 import Loader from "../../components/Loader/Loader";
-import { useDispatch, useSelector } from "react-redux";
-import { setChatId } from "../../store/sumSlice";
+import { useSelector } from "react-redux";
 export default function Main() {
-  const [isLoading, setIsLoading] = React.useState(false);
-  const telegram = window.Telegram.WebApp;
-  const dispatch = useDispatch();
-  const telegramData = telegram?.initDataUnsafe;
-  const chat_id = telegramData?.user?.id;
-  React.useEffect(() => {
-    dispatch(setChatId(chat_id));
-  }, []);
-  telegram.expand();
+  const { loading } = useSelector((state) => state.sumSlice);
 
-  
-  const { chat_id: chat_idd } = useSelector((state) => state.sumSlice);
-
-  if (isLoading) {
-    return <Loader />;
-  }
   return (
     <>
       <Header />
