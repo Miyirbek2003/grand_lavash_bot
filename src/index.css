@@ -278,9 +278,14 @@ main {
   background-color: #e3647c;
 }
 
+
 .plus {
   background-color: green;
+  /* position: relative; */
 }
+
+
+
 
 .pr-title {
   font-size: 18px;
