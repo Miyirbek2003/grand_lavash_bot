@@ -317,9 +317,10 @@ main {
   transition: 0s;
 }
 
-.minus{
+.minus {
   position: relative;
 }
+
 .minus:hover {
   transition-duration: 0.1s;
   background-color: #e3647c;
@@ -354,6 +355,12 @@ main {
   font-weight: 500;
   text-transform: capitalize;
   line-height: 22px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  /* start showing ellipsis when 3rd line is reached */
+  white-space: pre-wrap;
+  overflow: hidden;
 }
 
 .product h3 {
