@@ -4,6 +4,7 @@ import React from "react";
 import {
   addSum,
   descSum,
+  getBanners,
   getCategory,
   getProducts,
   setSelected_pr,
@@ -17,6 +18,7 @@ export default function Products() {
   React.useEffect(() => {
     dispatch(getCategory());
     dispatch(getProducts());
+    dispatch(getBanners());
   }, []);
 
   const { sum, selected_pr, category, products } = useSelector(

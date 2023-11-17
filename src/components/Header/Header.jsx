@@ -5,6 +5,7 @@ export default function Header() {
     <header>
       <div className="container">
         <img src={logo} alt="" />
+        <h3>Grand Lavash</h3>
       </div>
     </header>
   );

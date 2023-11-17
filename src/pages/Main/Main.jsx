@@ -11,8 +11,7 @@ import React from "react";
 import Loader from "../../components/Loader/Loader";
 import { useSelector } from "react-redux";
 export default function Main() {
-  const { loading } = useSelector((state) => state.sumSlice);
-
+  const { loading, banners } = useSelector((state) => state.sumSlice);
   return (
     <>
       {loading && <Loader />}
@@ -33,12 +32,11 @@ export default function Main() {
                 modules={[Autoplay]}
                 className="mySwiper"
               >
-                <SwiperSlide>
-                  <img src={img1} alt="" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={img2} alt="" />
-                </SwiperSlide>
+                {banners?.map((item) => (
+                  <SwiperSlide key={item.id}>
+                    <img src={item.img_url} alt="" />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
             <Products />

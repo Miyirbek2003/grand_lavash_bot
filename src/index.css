@@ -59,11 +59,15 @@ header {
 
 header .container {
   display: flex;
-  justify-content: end;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  color: #04451d;
+  font-size: 17px;
 }
 
 header .container img {
-  max-width: 53px;
+  max-width: 60px;
   width: 100%;
   border-radius: 50%;
 }
