@@ -2,10 +2,10 @@ import ContentLoader from "react-content-loader";
 
 export default function Loader({ props }) {
   return (
-    <>
+    <div className="loader">
       <span style={{ height: "80px", width: "100%" }}>
         <ContentLoader
-          speed={2}
+          speed={1}
           width={70}
           height={70}
           style={{ position: "absolute", right: "10px", top: "5px" }}
@@ -88,7 +88,7 @@ export default function Loader({ props }) {
             <ContentLoader
               key={Math.random() * 10}
               style={{ marginLeft: "5px" }}
-              speed={2}
+              speed={1}
               width={181}
               height={200}
               viewBox="0 0 181 200"
@@ -108,6 +108,6 @@ export default function Loader({ props }) {
             </ContentLoader>
           ))}
       </div>
-    </>
+    </div>
   );
 }

@@ -88,6 +88,7 @@ export default function Products() {
           {sorted.map((item, index) => {
             return (
               <div
+                data-aos={index % 2 !== 0 ? "fade-left" : "fade-right"}
                 key={item.id}
                 id={"a" + item.category_id}
                 className="product"

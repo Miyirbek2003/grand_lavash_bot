@@ -109,6 +109,18 @@ const sumSlice = createSlice({
             state.chat_id = payload
         },
     },
+    extraReducers: (builder) => {
+        builder
+            .addCase(getProducts.pending, (state, action) => {
+                state.loading = true
+            })
+            .addCase(getProducts.fulfilled, (state, action) => {
+                state.loading = false
+            })
+            .addCase(getProducts.rejected, (state, action) => {
+                state.loading = false;
+            })
+    }
 
 
 })

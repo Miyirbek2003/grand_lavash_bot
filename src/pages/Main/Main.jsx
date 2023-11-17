@@ -15,6 +15,7 @@ export default function Main() {
 
   return (
     <>
+      {loading && <Loader />}
       <Header />
       <main>
         <div className="container">
