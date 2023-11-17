@@ -8,7 +8,7 @@ export default function Loader({ props }) {
           speed={1}
           width={70}
           height={70}
-          style={{ position: "absolute", right: "10px", top: "5px" }}
+          style={{ position: "absolute", left: "10px", top: "5px" }}
           viewBox="0 0 70 70"
           backgroundColor="#f3f3f3"
           foregroundColor="#ecebeb"
