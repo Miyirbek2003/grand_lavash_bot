@@ -63,7 +63,7 @@ header .container {
 }
 
 header .container img {
-  max-width: 70px;
+  max-width: 53px;
   width: 100%;
   border-radius: 50%;
 }
@@ -93,7 +93,7 @@ main {
   text-align: center;
   font-size: 18px;
   background: #fff;
-  height: 170px;
+  height: 140px;
   border-radius: 15px;
   /* Center slide text vertically */
   display: flex;
@@ -308,7 +308,7 @@ html {
   box-shadow: 0 0 20px rgba(4, 69, 29, 0.5);
   padding: 15px;
   display: flex;
-  height: 100px;
+  height: 85px;
   align-items: center;
   justify-content: space-between;
   z-index: 5;
@@ -318,8 +318,8 @@ html {
   color: white;
   border: none;
   border-radius: 10px;
-  padding: 17px;
-  font-size: 25px;
+  padding: 14px;
+  font-size: 23px;
 }
 
 main {
@@ -403,7 +403,9 @@ main {
   color: #04451d;
   font-size: 17px;
 }
-
+.tab-btn:last-child{
+  margin-right: 10px;
+}
 .content {
 
   display: flex;
