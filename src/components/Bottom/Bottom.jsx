@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, useParams, redirect, Navigate } from "react-router-dom";
 import { orderFood } from "../../store/sumSlice";
 
-export default function Bottom() {
+export default function Bottom({ address }) {
   const { sum, selected_pr } = useSelector((state) => state.sumSlice);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -26,15 +26,21 @@ export default function Bottom() {
         <button
           className="plus href"
           onClick={(e) => {
-            unique.forEach((element) => {
-              ordering.push({
-                product_id: element.id,
-                quantity: element.quantity,
+            if (address) {
+              unique.forEach((element) => {
+                ordering.push({
+                  product_id: element.id,
+                  quantity: element.quantity,
+                  address: address,
+                });
               });
-            });
-            dispatch(orderFood(ordering));
-            let btn = document.querySelector(".plus.href");
-            btn.disabled = "true";
+              dispatch(orderFood(ordering));
+              let btn = document.querySelector(".plus.href");
+              btn.disabled = "true";
+            } else {
+              let errorHand = document.querySelector(".error");
+              errorHand.style.display = "block";
+            }
           }}
         >
           Оформить заказ

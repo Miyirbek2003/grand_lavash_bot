@@ -47,7 +47,8 @@ export const orderFood = createAsyncThunk('sumSlice/orderFood', async (selected_
     const response = await axios.post('https://grandlavash.webclub.uz/api/orders/store-bot',
         {
             "chat_id": chat_id,
-            "products": selected_pr
+            "products": selected_pr,
+            "address": selected_pr.address
         },
         {
             headers: {
