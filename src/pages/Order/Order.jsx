@@ -6,7 +6,7 @@ import logo from "../../assets/logo.jpg";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 export default function Order() {
-  const [address, setAddress] = React.useState("");
+  
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -79,22 +79,8 @@ export default function Order() {
             </div>
           ))}
         </div>
-        <div className="address">
-          <span>Адрес(Ориентир)</span>
-          <input
-            type="text"
-            value={address}
-            onChange={(e) => {
-              setAddress(e.target.value);
-              let errorHand = document.querySelector(".error");
-              errorHand.style.display = "none";
-            }}
-            required
-          />
-          <span className="error">Введите адрес</span>
-        </div>
       </main>
-      <Bottom address={address} />
+      <Bottom  />
     </>
   );
 }

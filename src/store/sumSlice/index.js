@@ -48,7 +48,8 @@ export const orderFood = createAsyncThunk('sumSlice/orderFood', async (selected_
         {
             "chat_id": chat_id,
             "products": selected_pr,
-            "address": selected_pr.address
+            "address": selected_pr.address,
+            "comment": selected_pr.comment
         },
         {
             headers: {

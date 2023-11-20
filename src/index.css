@@ -441,6 +441,19 @@ main {
   gap: 15px;
   justify-content: center;
   align-items: center;
+  margin-bottom: 15px;
+}
+
+.btm-inner h4 {
+  font-size: 22px;
+}
+
+.btm-inner span {
+  font-size: 20px !important;
+}
+
+.plus.href {
+  margin-top: 10px;
 }
 
 .order {
@@ -522,7 +535,7 @@ main {
 .bottom.href {
   display: flex;
   flex-direction: column;
-  height: 130px;
+  height: auto;
 }
 
 .plus.href {
@@ -567,21 +580,22 @@ main {
 .address {
   /* position: absolute; */
   /* bottom: 15px; */
-  max-width: 90%;
+  max-width: 100%;
   width: 100%;
   margin: 0 auto;
-  margin-top: 15px;
   margin-bottom: 17px;
+position: relative;
 }
 
-.address input {
+.address input,
+.address textarea {
   width: 100%;
   padding: 7px 12px;
   font-size: 18px;
   border: 1px solid #04451d;
   box-shadow: 0 0 10px rgba(4, 69, 29, 0.5);
   border-radius: 12px;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .address span {
@@ -591,8 +605,20 @@ main {
 
 
 
-.error {
+.error,
+.error2 {
   display: none;
+  position: absolute;
+  right: 0;
   color: crimson !important;
   font-size: 15px;
+}
+
+.add {
+  display: flex;
+  flex-direction: column;
+}
+textarea{
+  font-weight: 600;
+  height: 100px;
 }
