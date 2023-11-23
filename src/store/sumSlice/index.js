@@ -38,18 +38,19 @@ export const getBanners = createAsyncThunk('sumSlice/getBanners', async (_, { di
 })
 
 export const orderFood = createAsyncThunk('sumSlice/orderFood', async (selected_pr, { dispatch }) => {
-    const telegram = window.Telegram.WebApp;
-    const telegramData = telegram.initData;
-    const chat_id = telegram.initDataUnsafe.user.id;
+    const telegram = window?.Telegram?.WebApp;
+    const telegramData = telegram?.initData;
+    let chat_id = telegram?.initDataUnsafe?.user?.id;
     if (!chat_id) {
         chat_id = 0;
     }
+
     const response = await axios.post('https://grandlavash.webclub.uz/api/orders/store-bot',
         {
             "chat_id": chat_id,
             "products": selected_pr,
-            "address": selected_pr.address,
-            "comment": selected_pr.comment
+            "address": selected_pr[0].address,
+            "comment": selected_pr[0].comment
         },
         {
             headers: {
@@ -61,6 +62,7 @@ export const orderFood = createAsyncThunk('sumSlice/orderFood', async (selected_
     if (response.status == 200) {
         telegram.close();
     }
+    return response.data
 
 })
 

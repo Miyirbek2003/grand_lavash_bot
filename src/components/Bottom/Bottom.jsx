@@ -67,10 +67,13 @@ export default function Bottom() {
                   comment: comment,
                 });
               });
-              dispatch(orderFood(ordering));
+
+              console.log(ordering);
               let btn = document.querySelector(".plus.href");
               btn.disabled = "true";
-            } else if (!address) {
+              dispatch(orderFood(ordering));
+            }
+            if (!address) {
               let errorHand = document.querySelector(".error");
               errorHand.style.display = "block";
             }
