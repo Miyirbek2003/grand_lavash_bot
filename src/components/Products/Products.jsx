@@ -76,15 +76,11 @@ export default function Products() {
       </div>
       <div className="products">
         <ul>
-          {category?.map((item, index) => {
-            if (index < 5) {
-              return (
-                <li key={item.id} id={item.id} className="tab-btn">
-                  {item.name}
-                </li>
-              );
-            }
-          })}
+          {category?.map((item, index) => (
+            <li key={item.id} id={item.id} className="tab-btn">
+              {item.name}
+            </li>
+          ))}
         </ul>
         <div className="pr-cards">
           {sorted.map((item, index) => {
