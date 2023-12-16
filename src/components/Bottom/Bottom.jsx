@@ -58,7 +58,7 @@ export default function Bottom() {
         <button
           className="plus href"
           onClick={(e) => {
-            if (address && comment) {
+            if (address) {
               unique.forEach((element) => {
                 ordering.push({
                   product_id: element.id,
@@ -67,19 +67,14 @@ export default function Bottom() {
                   comment: comment,
                 });
               });
-
-              console.log(ordering);
               let btn = document.querySelector(".plus.href");
               btn.disabled = "true";
               dispatch(orderFood(ordering));
             }
+            
             if (!address) {
               let errorHand = document.querySelector(".error");
               errorHand.style.display = "block";
-            }
-            if (!comment) {
-              let errorHand2 = document.querySelector(".error2");
-              errorHand2.style.display = "block";
             }
           }}
         >
