@@ -37,6 +37,17 @@ export const getBanners = createAsyncThunk('sumSlice/getBanners', async (_, { di
     dispatch(setBanners(response.data.data))
 })
 
+export const getSumma = createAsyncThunk('sumSlice/getSumma', async (_, { dispatch }) => {
+    const response = await axios.get('https://grandlavash.webclub.uz/api/delivery-summa', {
+        headers: {
+            'Accept-Language': 'ru',
+            'Accept': 'application/json',
+        }
+    })
+
+    dispatch(setSumma(response.data.delivery_summa))
+})
+
 export const orderFood = createAsyncThunk('sumSlice/orderFood', async (selected_pr, { dispatch }) => {
     const telegram = window?.Telegram?.WebApp;
     const telegramData = telegram?.initData;
@@ -75,6 +86,7 @@ const initialState = {
     category: [],
     products: [],
     banners: [],
+    summa: [],
     chat_id: '',
     loading: false
 
@@ -128,6 +140,9 @@ const sumSlice = createSlice({
         setBanners: (state, { payload }) => {
             state.banners = payload
         },
+        setSumma: (state, { payload }) => {
+            state.summa = payload
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -147,4 +162,4 @@ const sumSlice = createSlice({
 
 export default sumSlice.reducer
 
-export const { setProducts, addSum, setCategory, descSum, setBanners, setSelected_pr, setChatId } = sumSlice.actions
+export const { setProducts, setSumma, addSum, setCategory, descSum, setBanners, setSelected_pr, setChatId } = sumSlice.actions

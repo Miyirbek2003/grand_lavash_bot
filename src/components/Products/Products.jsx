@@ -24,8 +24,39 @@ export default function Products() {
   const { sum, selected_pr, category, products } = useSelector(
     (state) => state.sumSlice
   );
+  const slider23 = document.querySelector(".lists");
+  let isDown = false;
+  let startX;
+  let scrollLeft;
 
+  slider23?.addEventListener("mousedown", (e) => {
+    isDown = true;
+    slider23.classList.add("active");
+    startX = e.pageX - slider23.offsetLeft;
+    scrollLeft = slider23.scrollLeft;
+  });
+  slider23?.addEventListener("mouseleave", () => {
+    isDown = false;
+    slider23.classList.remove("active");
+  });
+  slider23?.addEventListener("mouseup", () => {
+    isDown = false;
+    slider23.classList.remove("active");
+  });
+  slider23?.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider23.offsetLeft;
+    const walk = (x - startX) * 2; //scroll-fast
+    slider23.scrollLeft = scrollLeft - walk;
+  });
   const tab_btn = document.querySelectorAll(".tab-btn");
+  const scrollContainer = document.querySelector(".lists");
+
+  scrollContainer?.addEventListener("wheel", (evt) => {
+    evt.preventDefault();
+    scrollContainer.scrollLeft += evt.deltaY * 2;
+  });
   tab_btn.forEach((item, index) => {
     item.addEventListener("click", () => {
       if (!item.classList.contains("active")) {
@@ -56,6 +87,7 @@ export default function Products() {
       .substring(0, 7)
       .includes(result.toLowerCase().trim())
   );
+
   return (
     <>
       <div className="search">
@@ -75,7 +107,7 @@ export default function Products() {
         )}
       </div>
       <div className="products">
-        <ul>
+        <ul className="lists" id="lists">
           {category?.map((item, index) => (
             <li key={item.id} id={item.id} className="tab-btn">
               {item.name}

@@ -6,11 +6,10 @@ import logo from "../../assets/logo.jpg";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 export default function Order() {
-  
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  const { sum, selected_pr, category, products } = useSelector(
+  const { sum,summa, selected_pr, category, products } = useSelector(
     (state) => state.sumSlice
   );
   const unique = selected_pr.filter(
@@ -22,7 +21,8 @@ export default function Order() {
     return selected_pr.filter((value) => value.id == item.id).length;
   }
   const navigate = useNavigate();
-
+  const [address, setAddress] = React.useState("");
+  const [comment, setComment] = React.useState("");
   return (
     <>
       <main>
@@ -79,8 +79,48 @@ export default function Order() {
             </div>
           ))}
         </div>
+        <div className="order add">
+          <div className="btm-inner href">
+            <h4>Сумма товаров</h4>
+            <span>{sum} сум</span>
+          </div>
+          <div className="btm-inner href">
+            <h4>Сумма доставки</h4>
+            <span>{summa} сум</span>
+          </div>
+          <div className="add">
+            <div className="address">
+              <span>Адрес(Ориентир)</span>
+              <input
+                type="text"
+                value={address}
+                onChange={(e) => {
+                  setAddress(e.target.value);
+                  let errorHand = document.querySelector(".error");
+                  errorHand.style.display = "none";
+                }}
+                required
+              />
+              <span className="error">Введите адрес</span>
+            </div>
+            <div className="address">
+              <span>Коментарий</span>
+              <textarea
+                name="coment"
+                value={comment}
+                onChange={(e) => {
+                  setComment(e.target.value);
+                  let errorHand = document.querySelector(".error2");
+                  errorHand.style.display = "none";
+                }}
+                id="coment"
+              ></textarea>
+              <span className="error2">Оставьте комментарию</span>
+            </div>
+          </div>
+        </div>
       </main>
-      <Bottom  />
+      <Bottom address={address} comment={comment} />
     </>
   );
 }
